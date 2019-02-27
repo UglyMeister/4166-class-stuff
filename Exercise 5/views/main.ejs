@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="../assets/stylesheets/stylesheet.css" type="text/css">
+  </head>
+  <body>
+    <h1>Welcome to the most awesome website on the net</h1>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Degree</th>
+        <th>Program</th>
+      </tr>
+      <tr>
+        <td><%= student.firstName %> <%= student.lastName %></td>
+        <td><%= student.degree %></td>
+        <td><%= student.program %></td>
+      </tr>
+    </table>
+    <form action="index.html" method="post">
+      <label for="firstName">First name:</label>
+      <input type="text" name="firstName" value="">
+      <label for="lastName">Last name:</label>
+      <input type="text" name="lastName" value="">
+      <label for="degree">Degree:</label>
+      <input type="text" name="degree" value="">
+      <label for="program">Program:</label>
+      <input type="text" name="program" value="">
+      <input type="submit" value="submit">
+    </form>
+    <% include image.ejs %>
+  </body>
+</html>

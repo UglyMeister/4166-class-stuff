@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="../assets/stylesheets/stylesheet.css" type="text/css">
+  </head>
+  <body>
+    <h1>Welcome to the most awesome website on the net</h1>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Degree</th>
+        <th>Program</th>
+      </tr>
+      <tr>
+        <td><%= student.firstName %> <%= student.lastName %></td>
+        <td><%= student.degree %></td>
+        <td><%= student.program %></td>
+      </tr>
+    </table>
+    <% include image.ejs %>
+  </body>
+</html>
