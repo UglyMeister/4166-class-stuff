@@ -54,8 +54,18 @@ app.get('/studentInfo*', function (req, res) {
 //this design is recommended since it follows an MVC architecture
 var studentInfo = require('./controls/studentInfo.js');
 var index = require('./controls/index.js');
+//EXERCISE 6 MIDDLEWARE FUNCTION HERE
+function middleware(request, response, next){
+  if(request.counter <= 0 || request.counter == null){
+    request.counter = 0;
+  }
+  request.counter += 1;
+  console.log('POST requests made for student info: ' + request.counter);
+  next();
+}
+
 app.use('/', index)
-app.post('/studentInfo', urlencodedParser, function(req, res){
+app.post('/studentInfo', urlencodedParser, middleware, function(req, res){
   var studentObj = require('./models/student');
   studentObj.setFirstName(req.body.firstName);
   studentObj.setLastName(req.body.lastName);

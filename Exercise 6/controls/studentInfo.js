@@ -49,7 +49,7 @@ app.get('/', function (request, response) {
     console.log('request with query string was sent');
     var path = process.cwd();
     console.log("path from where node was started" + path);
-    response.sendFile(path + '/views/index.html');
+    response.render('index');
   }
 });
 /************************************************************************ /
