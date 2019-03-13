@@ -3,6 +3,7 @@
 var express = require('express');
 var app = module.exports = express();
 
+
 /* This controller handles general (root) request
  *  this route definition resposnds by sending a text response
  */
@@ -18,6 +19,5 @@ app.get('/', function (request, response) {
     var path = process.cwd();
 
     console.log('request for home page');
-
     response.render('index', {request: request});
 });

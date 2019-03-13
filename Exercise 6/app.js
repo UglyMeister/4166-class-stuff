@@ -55,16 +55,18 @@ app.get('/studentInfo*', function (req, res) {
 var studentInfo = require('./controls/studentInfo.js');
 var index = require('./controls/index.js');
 //EXERCISE 6 MIDDLEWARE FUNCTION HERE
+var counter = 0;
 function middleware(request, response, next){
-  if(request.counter <= 0 || request.counter == null){
-    request.counter = 0;
-  }
-  request.counter += 1;
+  counter++;
+  request.counter = counter;
   console.log('POST requests made for student info: ' + request.counter);
   next();
 }
 
-app.use('/', index)
+app.use('/',function(req,res,next){
+  req.counter = counter;
+  next();
+}, index)
 app.post('/studentInfo', urlencodedParser, middleware, function(req, res){
   var studentObj = require('./models/student');
   studentObj.setFirstName(req.body.firstName);
