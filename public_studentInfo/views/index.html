@@ -6,9 +6,8 @@
     <p>
         Welcome
     </p>
-    <p>Student Info request counter: <%= request.counter %></p>
     <p>
-        <form action="/" method="post">
+        <form action="/studentInfo" method="GET">
             <table>
                 <tr>
                     <td>
@@ -45,29 +44,7 @@
 
         </form>
     </p>
-    <table>
-        <tr>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Degree</th>
-          <th>Program</th>
-        </tr>
-<% if(db && db != null && db != ""){ %>
-  <% for(var i = 0; i < db.length; i++){ %>
-      <tr>
-        <td><%= db[i].firstName %></td>
-        <td><%= db[i].lastName %></td>
-        <td><%= db[i].degree %></td>
-        <td><%= db[i].program %></td>
-      </tr>
-  <% } %>
-<% } %>
-</table>
-<form action="/" method="get">
-<label>Input first name:</label>
-<input type="text" name="searchName">
-<input type="submit" value="findStudents">
-</form>
+
 </body>
 
 </html>
