@@ -1,0 +1,64 @@
+<% include partials/header.ejs %>
+
+
+  <h1> This is the Student Information home page </h1>
+
+  <h2>
+    Welcome fellow student! <br>
+    Thank you for sharing your information.
+     </h2>
+  <p>
+    <% if(typeof students === "undefined" || students === []){
+          console.log("students not defined or empty");
+        console.log(students);
+      }else{
+          console.log("students defined");
+
+          console.log(students);
+          %>
+
+    <form action="/studentInfo" method="POST">
+      <h3> Looking for a particular student? Search our listing by entering the student's first or last name</h3>
+      <input type="text" placeholder="Search" id="search" name="search">
+      <input type="submit" value="Search" />
+      <br><br>
+      <table>
+        <th>First</th>
+        <th>Last</th>
+        <th>Degree</th>
+        <th>Program</th>
+        <% students.forEach(function(student){ %>
+        <tr>
+          <td>
+            <p><%= student.firstName %></p>
+          </td>
+          <td>
+            <p><%= student.lastName %></p>
+          </td>
+          <td>
+            <p><%= student.degree %></p>
+          </td>
+          <td>
+            <p><%= student.program %></p>
+          </td>
+        </tr>
+        <% }); %>
+      </table>
+    </form>
+    <%}%>
+  </p>
+  <p>
+  <form action="/studentInfo" method="POST">
+    <input type="hidden" name="listAll" value="listAll" />
+    <input type="submit" value="List All Students" />
+  </form>
+  <br>
+  <form action="/studentInfo" method="POST">
+    <input type="hidden" name="delete" value="delete" />
+    <input type="submit" value="Delete All Students" />
+  </form>
+  <br>
+  <a href="/">Add more students</a>
+
+</p>
+  <% include partials/footer.ejs %>
