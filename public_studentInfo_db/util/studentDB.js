@@ -13,8 +13,7 @@ class StudentDB {
           console.log(data);
           resolve(data);
         }).catch(erro => { return reject(err); });
-    }
-    )
+    })
   }//end addStudent
 
   findAll(db) {
